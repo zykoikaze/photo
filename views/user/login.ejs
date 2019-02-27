@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>照片分享</title>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+   </head>
+   <body>
+      <div class="photo-blog">
+         <% include ../header %>
+         <div class="container">
+            <% include ../message %>
+            <div class="register">
+               <form action="/login" method="post">
+                  <p>用户名：<input type="text" name="user[name]"/></p>
+                  <p>密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="user[pass]"/></p>
+                  <div><input type="submit" value="登录"/></div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

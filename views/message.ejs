@@ -1,0 +1,8 @@
+<div>   
+   <% if(locals.messages) { %>
+      <% messages.forEach(function(message){ %>
+         <span><%= message.type %>: <%= message.string %></span>
+         <% removeMessages() %>
+      <% }) %>
+   <% }%>
+</div>

@@ -1,0 +1,180 @@
+*{
+  margin:0;
+  padding:0;
+}
+body {  
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.photo-blog{
+  padding-top:50px;  
+}
+.photo-nav{
+  position: fixed;
+  z-index: 9999;  
+  top:0;
+  left:0;
+  box-shadow: 0 0 1px 0px rgba(0,0,0,0.3), 0 0 6px 2px rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.94);
+}
+header{
+  width:100%;
+  height:50px;
+  background: #eee;
+}
+header h1{
+  line-height:50px;
+  display:inline;
+  font-size:23px;
+}
+.photo-position{
+  float:right;
+  margin:10px 0;
+  line-height:30px;
+}
+.photo-header{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.pohot-logo{ 
+  display:inline;
+}
+.pohot-logo a{
+  text-decoration:none;
+  color:#000;
+}
+.login-list{
+  float:left;
+}
+.login-list li{
+  float: left;
+  list-style:none;
+  margin:0 10px;
+}
+.login-list li.line{
+  height:15px;
+  width:0;
+  margin-top: 7px;
+  border-color: #d9d9d9;
+  border-left-width: 1px;
+  border-left-style: solid;
+  overflow: hidden;
+}
+.login-list a{
+  color:#000;  
+  text-decoration:none;
+}
+/*
+*/
+.container{  
+  padding:15px;
+}
+.secend-title{
+  height:35px;
+  line-height:35px;
+}
+.secend-title h2{
+  font-size:17px;
+  font-weight: 300;
+}
+/*
+  list css
+*/
+.photo-container{
+  display:flex;
+  align-items: flex-start;
+  flex-wrap:wrap;
+}
+.photo-single{
+  padding:10px;
+  width:200px;
+  border:1px solid #eee;
+  box-shadow: 0 1px 5px #ddd;
+  border-radius: 5%;
+  margin-right:10px;
+  margin-bottom:10px;
+}
+.photo-single h2{
+  font-weight: 200;
+  font-size:14px;
+  margin-bottom:5px;
+}
+.photo-single .img-height{
+  position:relative;
+  display:block;
+  width:100%;
+  height:0;
+  padding-bottom:59%;
+  overflow:hidden;  
+}
+.img-height img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position: center;
+}
+.img-height img{
+  display:block;
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  top:0;
+}
+.photo-edit{
+  margin-top:10px;
+}
+.photo-edit a{
+  border-radius:3px;
+  padding:3px 7px;
+  color:#fff;
+  text-decoration:none;
+}
+.photo-edit a:first-child{  
+  background:#F56C6C;
+}
+.photo-edit a:last-child{
+  background:#409EFF;
+}
+.upload-btn{
+  display:inline-block;
+  border-radius:3px;
+  padding:8px 10px;
+  text-decoration:none;
+  color:#fff;
+  background:#67C23A;
+  margin-bottom:10px;
+}
+/*
+  upload css
+*/
+form>div{
+  margin-bottom:7px;  
+}
+form .upload-browser{
+  display:inline-block;
+  position:relative;
+}
+
+form input[type='file']{
+  opacity:0;
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+form input:not([type='file']),
+form label{
+  padding:5px;
+}
+form label{
+  border:1px outset buttonface;
+  -webkit-appearance:push-button;
+  user-select:none;
+}
+/*
+  register css
+*/
+form p{
+  margin:10px 0;
+}

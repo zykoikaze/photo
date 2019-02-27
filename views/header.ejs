@@ -1,0 +1,22 @@
+<header class="photo-nav">
+   <div class="photo-header">
+      <div class="pohot-logo">
+         <h1><a href="/">图片分享</a></h1>
+      </div>
+      <div class="photo-position">         
+         <% if(locals.user){ %>
+            <ul class="login-list">
+               <li><%= user.name%></li>
+               <li class="line"></li>
+               <li><a href="/logout">退出</a></li>
+            </ul>
+         <% }else { %>
+            <ul class="login-list">
+               <li><a href="/register">注册</a></li>
+               <li class="line"></li>
+               <li><a href="/login">登录</a></li>
+            </ul>
+         <% }%>
+      </div>
+   </div>
+</header>

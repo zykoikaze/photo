@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>照片分享</title>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+   </head>
+   <body>
+      <div class="photo-blog">
+         <% include ../header %>
+         <div class="container">
+            <% if(locals.user){ %>
+               <a href="/upload" class="upload-btn">上传图片</a>
+            <% }else{ %>
+               <a href="/login" class="upload-btn">上传图片</a>
+            <% } %>
+            <div class="photo-container">
+               <% if(photos.length >0){ %>
+                  <% photos.forEach(function(photo){ %>
+                     <div class="photo-single">
+                        <h2><%= photo.name %></h2>
+                        <i class="img-height">
+                           <img src="/photos/<%= photo.path %>">
+                        </i>
+                        <% if(locals.user){%>
+                           <p class="photo-edit">
+                              <a href="/photo/<%= photo._id %>/delete">删除</a>
+                              <a href="/photo/<%= photo._id %>/download">下载</a>
+                           </p>   
+                        <% }else {%>
+                           <p class="photo-edit">
+                              <a href="/login">删除</a>
+                              <a href="/login">下载</a>
+                           </p>
+                        <%}%>
+                     </div>
+                  <% }) %>
+               <% } else { %> 
+                  <div>
+                     暂无数据
+                  </div>
+               <% }%>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

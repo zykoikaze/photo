@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>照片分享</title>
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+   </head>
+   <body>
+      <div class="photo-blog">
+         <% include ../header %>
+         <div class="container">
+            <% include ../message %>
+            <div class="upload-container">            
+               <form action="/upload" method="post" enctype="multipart/form-data">
+                  <div>
+                     <input id="file-box" type="text" disabled/>
+                     <div class="upload-browser">
+                        <!-- <input type="button" value="Browser..."/> -->
+                        <label for="file-btn">选择图片...</label>
+                        <input id="file-btn" type="file" name="path" value="上传图片"/>
+                     </div>               
+                  </div>
+                  <div>
+                     <input id="file-name" type="text" name="name" placeholder="图片名称"/>
+                  </div>
+                  <div><input type="submit" value="上传图片"/></div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script>
+         $(document).ready(function(){
+            var fileBox=$('#file-box'),
+               fileBtn=$('#file-btn'),
+               fileName=$('#file-name');
+            fileBtn.change(function(){
+               var file=this.files[0];               
+               if(file){                 
+                  fileBox.val(file.name)
+               }
+            })
+         })         
+      </script>
+   </body>
+</html>

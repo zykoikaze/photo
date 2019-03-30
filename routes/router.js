@@ -5,6 +5,7 @@ const formidable=require('formidable');
 const Photo=require('../models/photo');
 const User=require('../lib/user');
 const validate=require('../lib/middleware/validate');
+const mime=require('mime-types');
 router.get('/', function(req, res, next) {
   /** 分页 - 参考
       Photo.count({},function(err,count){
@@ -34,23 +35,23 @@ router.get('/upload', function(req, res, next) {
     title: '图片上传',   
   });
 });
-router.post('/upload',
-  validate.required('photos[path]','请选择上传的图片'),
-  function(req, res, next) {
-  var form=new formidable.IncomingForm();
-  form.uploadDir=res.locals.photos;
-  form.parse(req,function(err,field,file){
-    var img=file.path;
-      name=field.name || img.name;
-    var path=img.path.split('\\').pop();
-    Photo.create({
-      name:name,
-      path:path
-    },function(err){
-      if(err) return next(err)
-      res.redirect('/')
-    })
-  }) 
+router.post('/upload',function(req, res, next) {
+    var form=new formidable.IncomingForm();  
+    form.uploadDir=res.locals.photos;
+    form.keepExtensions = true;
+    form.parse(req,function(err,field,file){
+      var img=file.path;
+        name=field.name || img.name;
+      var path=img.path.split('\\').pop();
+      // var type=mime.extension(img.type);   
+      Photo.create({
+        name:name,
+        path:path
+      },function(err){
+        if(err) return next(err)
+        res.redirect('/')
+      })
+    }) 
 });
 router.get('/photo/:id/delete', function(req, res, next) {
   Photo.remove({_id:req.params.id},function(err){
@@ -78,8 +79,9 @@ router.get('/register',function(req,res,next){
 })
 router.post('/register',function(req,res,next){
   var data=req.body.user;
+  console.log(data)
   User.getByName(data.name,function(err,user){
-    if(err) return next(err);    
+    if(err) return next(err);
     if(user && user.id){
       res.error('用户名已注册。');
       res.redirect('back')

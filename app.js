@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 //设置上传图片路径
 app.set('photos',path.join(__dirname, '/public/photos'))
 
-/**不能解析multipart */
+/**不能解析multipart/form-data */
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
